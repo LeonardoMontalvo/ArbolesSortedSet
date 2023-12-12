@@ -6,7 +6,6 @@ package treeSet;
 
 import java.util.Arrays;
 import java.util.SortedSet;
-
 import java.util.TreeSet;
 
 /**
@@ -39,11 +38,12 @@ public class MetodoTreeSet extends javax.swing.JFrame {
         lblProd = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnCalcular.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnCalcular.setText("Calcular");
+        btnCalcular.setText("Ordenar");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcularActionPerformed(evt);
@@ -66,6 +66,13 @@ public class MetodoTreeSet extends javax.swing.JFrame {
         txtArea.setRows(5);
         jScrollPane1.setViewportView(txtArea);
 
+        btnLimpiar.setText("Borrar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,16 +82,16 @@ public class MetodoTreeSet extends javax.swing.JFrame {
                 .addComponent(lblTema, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(161, 161, 161))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblProd)
-                            .addComponent(txtProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(btnCalcular)))
+                        .addComponent(btnCalcular)
+                        .addGap(111, 111, 111)
+                        .addComponent(btnLimpiar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblProd)
+                        .addComponent(txtProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -99,7 +106,9 @@ public class MetodoTreeSet extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(btnCalcular)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalcular)
+                    .addComponent(btnLimpiar))
                 .addGap(59, 59, 59))
         );
 
@@ -134,7 +143,6 @@ public class MetodoTreeSet extends javax.swing.JFrame {
 
          String[] cadena = sortedSet.toArray(new String[sortedSet.size()]);
 
-
         for (int i = 0; i < cadena.length; i++) {
 
             String elemento = cadena[i];
@@ -143,11 +151,17 @@ public class MetodoTreeSet extends javax.swing.JFrame {
         }
 
         txtArea.setVisible(true);
+        txtProductos.setText( " ");
 
     }
     private void txtProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProductosActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+
+       txtArea.setText(" ");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +199,7 @@ public class MetodoTreeSet extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblProd;
